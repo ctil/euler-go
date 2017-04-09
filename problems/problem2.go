@@ -11,14 +11,10 @@ find the sum of the even-valued terms.
 */
 package problems
 
-import (
-	"fmt"
-)
-
-func Problem2() {
-	var previous uint32 = 1
-	var current uint32 = 2
-	var sum uint32 = 0
+func problem2() int {
+	previous := 1
+	current := 2
+	sum := 0
 	for current < 4000000 {
 		if current%2 == 0 {
 			sum += current
@@ -27,5 +23,9 @@ func Problem2() {
 		current = current + previous
 		previous = tmp
 	}
-	fmt.Printf("Problem 2 answer: %d\n", sum)
+	return sum
+}
+
+func init() {
+	Problem_map[2] = problem2
 }

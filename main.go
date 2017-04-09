@@ -20,8 +20,12 @@ func setupOptions() options {
 
 func runProblem(n int) {
 	// Run problem of given number
-	fmt.Printf("Running problem %d\n", n)
-	problems.Problem1()
+	if val, ok := problems.Problem_map[n]; ok {
+		answer := val()
+		fmt.Printf("Problem %d Answer: %d\n", n, answer)
+	} else {
+		fmt.Printf("Problem %d is not implemented\n", n)
+	}
 }
 
 func main() {
